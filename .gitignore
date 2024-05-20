@@ -1,0 +1,25 @@
+# Dependency directories
+/node_modules
+
+# Build output
+/build
+/dist
+
+# Environment variables
+.env
+
+# IDE or editor specific files
+.vscode
+.idea
+*.sublime-workspace
+*.suo
+*.ntvs*
+
+# Configuration files
+
+# Editor configuration
+.editorconfig
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
