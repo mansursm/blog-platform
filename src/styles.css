@@ -63,8 +63,18 @@ body {
 
 
 
-
-
+/* post page */
+.postPage-content{
+  padding: .8em;
+}
+.postPage-content h1{
+  font-size: 1.2rem;
+  margin-bottom: .5em;
+  color: #333;
+}
+.postPage-content p{
+  margin-bottom: .5em;
+}
 
 
 
@@ -86,4 +96,99 @@ body {
 .card span{
   color: #8b8b8b;
   font-weight: bold;
+}
+
+
+/*  login page */
+.loginpage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .8em;
+    transform: translateY(40%);
+    width: 60%;
+    margin: 0 auto;
+}
+.loginpage h1{
+    font-size: 1.2rem;
+    margin-bottom: .5em;
+    color: #333;
+}
+.loginpage form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .8em;
+}
+.inputField{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .5em;
+    width: 100%;
+}
+.inputField input{
+    padding: .8em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: .5em;
+    width: 100%;
+}
+.submit{
+    padding: .8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    margin: .5em 0;
+    width: 100%;
+}
+
+/* Register Page */
+.registerPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .8em;
+    transform: translateY(20%);
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* Create Post Page */
+.createPostPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .8em;
+    width: 80%;
+    height: 95%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.editor{
+  max-width: 500px;
+  max-height: 350px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+
+// Text Button Component
+ .textButton{
+    padding: .8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: .5em;
+    width: 250px;
+    text-align: center;
+    cursor: pointer;
 }

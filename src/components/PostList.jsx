@@ -1,3 +1,9 @@
+/**
+ * Renders a list of posts.
+ * 
+ * @component
+ * @returns {JSX.Element} The PostList component.
+ */
 import React from 'react'
 import Card from './Card'
 

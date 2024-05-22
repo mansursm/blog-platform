@@ -1,3 +1,9 @@
+/**
+ * Represents the header component of the blog platform.
+ * 
+ * @component
+ * @returns {JSX.Element} The rendered header component.
+ */
 import React from 'react'
 
 function Header() {

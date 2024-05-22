@@ -1,3 +1,9 @@
+/**
+ * Represents a card component that displays a post as a card.
+ * 
+ * @component
+ * @returns {JSX.Element} - The Card component.
+ */
 import React from 'react'
 
 function Card() {
