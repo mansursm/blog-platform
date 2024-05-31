@@ -5,19 +5,35 @@
  * @returns {JSX.Element} - The Card component.
  */
 import React from 'react'
+import Button from './Button'
+import './Card.css'
 
-function Card() {
+function Card({post, tableView}) {
+    const [id, title, tags, date] = post
+
+    if (tableView) {
+        return (
+          <tr className='card-row'>
+            <td className='card-id'>{id}</td>
+            <td className='card-title'>{title}</td>
+            <td className='card-tags'>{tags}</td>
+            <td className='card-date'>{date}</td>
+          </tr>
+        )
+    }
     return (
-        <div className="card">
-            <a href="/link-to-card">
-                <div className="card-content">
-                    <div className="card-title"><span>Title:</span> Test</div>
-                    <div className="card-excerpt"><span>Excerpt:</span> This is a test to Create a card</div>
-                    <div className="card-date"><span>Date Posted:</span> 2024-05-20</div>
-                    <div className='card-createdby'><span>Author:</span> Mansur</div>
-                </div>
-            </a>
+<div className="card">
+      <div className="card-content">
+        <div className="card-header">
+          <p className='card-id'>{id}</p>
+          <h4 className="card-title">{title}</h4>
         </div>
+        <div className="card-body">
+          <span className='card-tags'>{tags}</span>
+          <span className="card-date">{date}</span>
+        </div>
+      </div>
+    </div>
     )
 }
 

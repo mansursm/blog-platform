@@ -1,0 +1,13 @@
+/* home page */
+.postLists{
+    width: 90%;
+    margin: 0 auto;
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.postLists .card{
+    width: 30%; 
+}

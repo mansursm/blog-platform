@@ -11,10 +11,10 @@
  */
 import React from 'react'
 import { useState } from 'react'
-import AuthForm from './components/AuthForm'
-import InputField from './components/InputField'
-import Button from './components/Button'
-import TextButton from './components/TextButton'
+import AuthForm from '../../components/AuthForm'
+import InputField from '../../components/InputField'
+import Button from '../../components/Button'
+import TextButton from '../../components/TextButton'
 
 function Login() {
     const [username, setUsername] = useState(''); // The username input field value.

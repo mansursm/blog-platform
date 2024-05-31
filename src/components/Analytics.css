@@ -1,0 +1,29 @@
+.analytics {
+    width: 40%;
+    padding: .5em;
+}
+.analyticsStats{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+
+@media screen and (max-width: 1200px){
+    .recentBlogs{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .recentBlogs{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .recentBlogs{
+        width: 100%;
+    }
+}

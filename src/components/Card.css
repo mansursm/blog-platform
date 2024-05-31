@@ -1,0 +1,75 @@
+.card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-title {
+    font-size: 1.025rem;
+    color: #333;
+  }
+  
+  .card-id{
+    font-size: 0.8rem;
+    color: #999;
+    border: none;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #999;
+  }
+  .card-tags{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  .card-date {
+    font-size: 0.7rem;
+    color: #999;
+  }
+
+  
+  /* Table view card */
+  .card-row {
+    podding: 16px;
+  }
+  .card-row:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  td {
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    padding: 8px;
+    text-align: left;
+    color: #626567;
+    font-weight: 535;
+    front-size: 0.7rem;
+  }
+  thead tr{
+    border-bottom: 1.5px solid #ccc;
+  }
+  tbody tr{
+    border: none;
+  }

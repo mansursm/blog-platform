@@ -7,10 +7,10 @@
  * @returns {<RegisterPage />} The Register Page component.
  */
 import React from 'react'
-import AuthForm from './components/AuthForm'
-import InputField from './components/InputField'
-import Button from './components/Button'
-import TextButton from './components/TextButton'
+import AuthForm from '../../components/AuthForm'
+import InputField from '../../components/InputField'
+import Button from '../../components/Button'
+import TextButton from '../../components/TextButton'
 import { useState } from 'react'
 
 function RegisterPage() {

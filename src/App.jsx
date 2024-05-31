@@ -1,15 +1,12 @@
 import React from 'react'
-import Header from './components/Header'
-import PostList from './components/PostList'
-import Login from './LoginPage'
-import RegisterPage from './RegisterPage'
-import CreatePost from './CreatePost'
+import AdminPage from './features/AdminPage/AdminPage'
+
 
 
 function App() {
     return (
         <div>
-            <CreatePost />
+           <AdminPage />
         </div>
     )
 }
