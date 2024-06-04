@@ -41,6 +41,14 @@ body {
 .header ul li{
     margin-right: 1em;
 }
+.links{
+    text-decoration: none;
+    color: #999;
+    font-weight: 600;
+}
+.links:hover, .links.active{
+    color: #333;
+}
 .logo{
     font-size: 1.3rem;
     font-weight: bold;
@@ -61,18 +69,6 @@ body {
 }
 
 
-/* post page */
-.postPage-content{
-  padding: .8em;
-}
-.postPage-content h1{
-  font-size: 1.2rem;
-  margin-bottom: .5em;
-  color: #333;
-}
-.postPage-content p{
-  margin-bottom: .5em;
-}
 
 /*  login page */
 .loginpage{

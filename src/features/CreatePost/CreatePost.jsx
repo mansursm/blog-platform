@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useRef } from 'react'
-import AuthForm from './components/AuthForm'
-import InputField from './components/InputField'
-import Button from './components/Button'
-import Editor from './components/Editor'
+import AuthForm from '../../components/AuthForm'
+import InputField from '../../components/InputField'
+import Button from '../../components/Button'
+import Editor from '../../components/Editor'
 
 function CreatePost() {
     const [title, setTitle] = useState('')       // Create a state variable for the title

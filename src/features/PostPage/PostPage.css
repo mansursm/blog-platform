@@ -1,0 +1,16 @@
+/* post page */
+.postPage-content{
+    padding: .8em;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em;
+}
+.postPage-content h1{
+    font-size: 1.2rem;
+    margin-bottom: .5em;
+    color: #333;
+}
+.postPage-content p{
+    margin-bottom: .5em;
+}
+  
