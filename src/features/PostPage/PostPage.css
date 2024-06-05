@@ -13,4 +13,10 @@
 .postPage-content p{
     margin-bottom: .5em;
 }
+
+@media screen and (max-width: 768px){
+    .postPage-content{
+        width: 90%;
+    }
+}
   

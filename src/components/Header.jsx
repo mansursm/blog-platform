@@ -6,8 +6,9 @@
  */
 import React from 'react'
 import { NavLink, useMatch } from 'react-router-dom'
+import './Header.css'
 
-function Header() {
+function Header({showModal}) {
         // Determine active matches for the links
         const matchHome = useMatch('/');
         const matchCreatePost = useMatch('/create-post');
@@ -28,6 +29,12 @@ function Header() {
                     <li><NavLink to="/login" className={`links ${matchLogin ? "active" : ""}`}>Login</NavLink></li>
                     <li><NavLink to="/admin" className={`links ${matchAdmin ? "active" : ""}`}>Admin</NavLink></li>
                 </ul>
+
+                <div className="hamBurgerMenu" onClick={showModal}>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                </div>
             </div>
         </div>
     )

@@ -11,3 +11,20 @@
 .postLists .card{
     width: 30%; 
 }
+
+
+@media screen and (max-width: 768px){
+    .postLists{
+        width: 100%;
+    }
+    .postLists .card{
+        width: 45%;
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .postLists .card{
+        width: 100%;
+    }
+}
