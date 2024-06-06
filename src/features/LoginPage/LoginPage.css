@@ -1,0 +1,61 @@
+/*  login page */
+.loginPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .8em;
+    transform: translateY(40%);
+    width: 100%;
+    margin: 0 auto;
+}
+.loginPageContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: .8em;
+    width: 400px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    height: 400px;
+    border-radius: 5px;
+}
+.loginPage h1{
+    font-size: 1.2rem;
+    margin-bottom: 2em;
+    color: #333;
+}
+.loginPage form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.inputField{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .5em;
+    width: 100%;
+}
+.inputField input{
+    padding: .8em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: .5em;
+    width: 100%;
+}
+.submit{
+    padding: .8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    margin: .5em 0;
+    width: 100%;
+}
+

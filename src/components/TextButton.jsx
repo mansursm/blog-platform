@@ -8,10 +8,11 @@
  * @returns {JSX.Element} The rendered TextButton component.
  */
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function TextButton({children, href, hyperlinkChildren}) {
+function TextButton({children, to, hyperlinkChildren}) {
     return (
-        <div className='textButton'>{children} <a href={href} target="_blank" rel="noopener noreferrer">{hyperlinkChildren}</a></div>
+        <div className='textButton'>{children} <Link to={to}>{hyperlinkChildren}</Link></div>
     )
 }
 

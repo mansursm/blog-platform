@@ -33,7 +33,7 @@ function App() {
                     <Route path="/post/:id" element={<Post />} />
                     <Route path="/edit-post/:id" element={<EditPost />} />
                 </Routes>
-            </Router>
+            </Router> 
         </div>
     )
 }

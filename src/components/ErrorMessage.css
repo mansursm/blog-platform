@@ -1,0 +1,8 @@
+.errorMessage{
+    color: red;
+    font-size: .8rem;
+    text-align:left;
+    width: 100%;
+    margin-bottom: .5em;
+    padding: .5em 1em;
+}

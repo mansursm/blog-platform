@@ -15,10 +15,13 @@ import AuthForm from '../../components/AuthForm'
 import InputField from '../../components/InputField'
 import Button from '../../components/Button'
 import TextButton from '../../components/TextButton'
+import ErrorMessage from '../../components/ErrorMessage'
+import './LoginPage.css'
 
 function Login() {
     const [username, setUsername] = useState(''); // The username input field value.
     const [password, setPassword] = useState(''); // The password input field value.
+    const [errorMessage, setErrorMessage] = useState(''); // The error message to display.
 
     /**
      * Handles the form submission.
@@ -27,7 +30,50 @@ function Login() {
      */
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('Form submitted')
+
+        // validate the form fields
+        const isValid = validateForm()
+        if (isValid) {
+            // extract the username and password from the form fields
+            console.log('Username:', username)
+            console.log('Password:', password)
+        }
+    }
+
+    
+    /**
+     * Validates the form fields.
+     *  
+     * @returns {boolean} - The validation result.
+     */
+    const validateForm = () => {
+            // check if the username and password are not empty or null
+        if (username === '' || password === '') {
+            setErrorMessage('Username and password are required and cannot be empty')
+            return false
+        }
+        // client side validation for username and password
+        // cases to consider:
+        // 1. check if username meets the username pattern 
+        // 2. check if password meets the password pattern
+        // 3. if they both meet requirements, return true
+            
+        // username pattern - 3 to 20 characters, only letters and numbers
+        if (username.length < 4 || username.length > 20) {
+            setErrorMessage('Username must be 3-20 characters long')
+            return false
+        }
+        if (!/^[a-zA-Z0-9]+$/.test(username)) {
+            setErrorMessage('Username must contain only letters and numbers')
+            return false
+        }
+        // password pattern - 8 to 20 characters, 
+        if (password.length < 8 || password.length > 20) {
+            setErrorMessage('Password must be 8-20 characters long')
+            return false
+        }
+
+        return true
     }
 
     /**
@@ -37,6 +83,7 @@ function Login() {
      */
     const handleUsernameChange = (e) => {
         setUsername(()=> e.target.value)
+        setErrorMessage('')
     }
 
     /**
@@ -46,22 +93,53 @@ function Login() {
      */ 
     const handlePasswordChange = (e) => {
         setPassword(()=> e.target.value)
+        setErrorMessage('')
     }
 
     return (
-        <div className='loginpage'>
-            <h1>Login Page</h1>
-            <AuthForm handleSubmit={handleSubmit} children={
-                <>
-                    <InputField type="text" placeholder="Username" name="username" id="username" onChange={handleUsernameChange} value={username}/>
-                    <InputField type="password" placeholder="Password" name="password" id="password" onChange={handlePasswordChange} value={password}/>
-                    <Button type="submit" className={'submit'}>Login</Button>
-                </>
-            }/>
-            <TextButton children='Forgot password?' href="http://" hyperlinkChildren="Click here"/>
-            <TextButton children="Don't have an account?" href="http://" hyperlinkChildren="Sign up"/>
+      <div className="loginPage">
+        <div className="loginPageContent">
+          <h1>Login Page</h1>
+          <AuthForm
+            handleSubmit={handleSubmit}
+            children={
+              <>
+                <InputField
+                  type="text"
+                  placeholder="Username"
+                  name="username"
+                  id="username"
+                  onChange={handleUsernameChange}
+                  value={username}
+                />
+                <InputField
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  id="password"
+                  onChange={handlePasswordChange}
+                  value={password}
+                />
+                {errorMessage && (<ErrorMessage message={errorMessage} />)}
+                <Button type="submit" className={"submit"}>
+                  Login
+                </Button>
+              </>
+            }
+          />
+          <TextButton
+            children="Forgot password?"
+            to="/forgot-password"
+            hyperlinkChildren="Click here"
+          />
+          <TextButton
+            children="Don't have an account?"
+            to = "/register"
+            hyperlinkChildren="Sign up"
+          />
         </div>
-    )
+      </div>
+    );
 }
 
 export default Login
