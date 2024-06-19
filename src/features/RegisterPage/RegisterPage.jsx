@@ -14,47 +14,38 @@ import TextButton from '../../components/TextButton'
 import ErrorMessage from '../../components/ErrorMessage'
 import './RegisterPage.css'
 import { useState } from 'react'
+import { registerAsync } from '../LoginPage/authSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectToken } from '../LoginPage/authSlice'
+import { useNavigate } from 'react-router'
 
 function RegisterPage() {
-    const [username, setUsername] = useState(''); // The username input field value.
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const [email, setEmail] = useState(''); // The email input field value.
     const [password, setPassword] = useState(''); // The password input field value.
     const [confirmPassword, setConfirmPassword] = useState(''); // The confirm password input field value.
     const [errorMessage, setErrorMessage] = useState(''); // The error message to display.
+    const token = useSelector(selectToken)
 
     const validateForm = () => {
-        // check if the username, email, password, and confirm password are not empty or null
-        if (username === '' || email === '' || password === '' || confirmPassword === '') {
-            setErrorMessage('All fields are required and cannot be empty')
-            return false
-        }
-        // client side validation for username, email, password, and confirm password
-        // cases to consider:
-        // 1. check if username meets the username pattern 
-        if (username.length < 8 || username.length > 20) {
-            setErrorMessage('Username must be 8-20 characters long')
-            return false
-        }
-        if (!/^[a-zA-Z0-9]+$/.test(username)) {
-            setErrorMessage('Username must contain only letters and numbers')
-            return false
-        }
-        // 2. check if email meets the email pattern
+        // 1. check if email meets the email pattern
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             setErrorMessage('Email must be valid')
             return false
         }
-        // 3. check if password meets the password pattern
+        // 2. check if password meets the password pattern
         if (password.length < 8 || password.length > 20) {
             setErrorMessage('Password must be 8-20 characters long')
             return false
         }
-        // 4. check if confirm password matches the password
+        // 3. check if confirm password matches the password
         if (password !== confirmPassword) {
             setErrorMessage('Passwords do not match')
             return false
         }
-        // 5. check if password meets the password pattern
+        // 4. check if password meets the password pattern
         if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/.test(password)) {
             setErrorMessage('Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character')
             return false
@@ -79,29 +70,23 @@ function RegisterPage() {
         const isValid = validateForm()
 
         if (isValid) {
-            // extract the username, email, password, and confirm password from the form fields
-            console.log('Username:', username)
-            console.log('Email:', email)
-            console.log('Password:', password)
-            console.log('Confirm Password:', confirmPassword)
-            // clear the form fields
-            setUsername('')
-            setEmail('')
-            setPassword('')
-            setConfirmPassword('')
-        }
-    }
+          // extract the username, email, password, and confirm password from the form fields
+          console.log("Email:", email);
+          console.log("Password:", password);
+          console.log("Confirm Password:", confirmPassword);
+          // dispatch the register action
+          dispatch(registerAsync(email, password));
 
-    /**
-     * Handles username changes to the input fields.
-     * 
-     * @param {Event} e - The change event.
-     * @returns {void}
-     * */
-    const handleUsernameChange = (e) => {
-        setUsername(()=> e.target.value)
-        if (errorMessage !== '') {
-            setErrorMessage('')
+          // check if the token is not null
+          if (token !== null) {
+            // clear the form fields
+            // clear the form fields
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
+            // redirect to the home page
+            navigate("/");
+          }
         }
     }
 
@@ -151,7 +136,6 @@ function RegisterPage() {
                 <h1>Register Page</h1>
                 <AuthForm handleSubmit={handleSubmit} children={
                     <>
-                        <InputField type="text" placeholder="Username" name="username" id="username" onChange={handleUsernameChange} value={username}/>
                         <InputField type="email" placeholder="Email" name="email" id="email" onChange={handleEmailChange} value={email}/>
                         <InputField type="password" placeholder="Password" name="password" id="password" onChange={handlePasswordChange} value={password}/>
                         <InputField type="password" placeholder="Confirm Password" name="confirmPassword" id="confirmPassword" onChange={handleConfirmPasswordChange} value={confirmPassword}/>

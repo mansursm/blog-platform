@@ -9,7 +9,7 @@ import Button from './Button'
 import './Card.css'
 
 function Card({post, handleClick}) {
-    const [id, title, tags, date] = post;
+    const [id, title, tags, likes, dislikes, views, date] = post;
 
     return (
 <div className="card" onClick={handleClick}>
@@ -20,6 +20,7 @@ function Card({post, handleClick}) {
         </div>
         <div className="card-body">
           <span className='card-tags'>{tags}</span>
+          <span className="card-date">{`Views: ${views} Reactions: ${likes} likes ${dislikes}`}</span>
           <span className="card-date">{date}</span>
         </div>
       </div>

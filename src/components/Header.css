@@ -58,6 +58,16 @@
       cursor: pointer;
   }
 
+  // Responsive
+  @media screen and (min-width: 769px){
+    .header{
+        padding: .8em 10%;
+    }
+    .hamBurgerMenu{
+        display: none;
+    }
+  }
+
   @media screen and (max-width: 768px){
     .header{
         padding: .8em 5%;

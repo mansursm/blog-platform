@@ -26,20 +26,60 @@ export const authSlice = createSlice({
 
 // authentication thunks
 export const loginAsync = (username, password) => (dispatch) => {
-    // Make an API call to authenticate the user
-    // If the user is authenticated, dispatch the login action
-    // If the user is not authenticated, dispatch the setErrorMessage action
-    if (username === 'admin' && password === 'password') {
-        dispatch(login('token'));
-    } else {
-        dispatch(setErrorMessage('The username or/and the password provided is incorrect'));
-    }
+    fetch('http://localhost:4000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+    })
+    .then((res) => {
+        if (res.ok) {
+            return res.json();
+        } else {
+            throw new Error('Login failed');
+        }
+    })
+    .then((data) => {
+        console.log(data);  // token
+        dispatch(login(data));
+    })
+    .catch((error) => {
+        dispatch(setErrorMessage(error.message));
+    });
+    
 };
 
 export const logoutAsync = () => (dispatch) => {
     // Make an API call to logout the user
     // If the user is logged out, dispatch the logout action
     dispatch(logout());
+}
+
+// registration thunks
+export const registerAsync = ( email, password) => (dispatch) => {
+    fetch('http://localhost:4000/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+    })
+    .then((res) => {
+        if (res.ok) {
+            return res.json();
+        } else {
+            throw new Error('Registration failed');
+        }
+    })
+    .then((data) => {
+        console.log(data);  // token
+        dispatch(login(data));
+    })
+    .catch((error) => {
+        dispatch(setErrorMessage(error.message));
+    });
+    
 }
 
 // authentication selectors
