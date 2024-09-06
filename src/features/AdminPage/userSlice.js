@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    user: {},
+    user: null,
 };
 
 const userSlice = createSlice({
@@ -13,16 +13,38 @@ const userSlice = createSlice({
         },
 
         clearUser: (state) => {
-            state.user = {};
+            state.user = null;
         },
-
-        getUser: (state) => {
-            return state.user;
-        },
-
     },
 });
 
-export const { setUser, clearUser, getUser } = userSlice.actions;
+// middle ware to fetch the user
+export const fetchUserAsync = (token) => (dispatch) => {
+    try {
+        console.log(token);
+        fetch(`http://localhost:4000/user?token=${token}`)
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error("User not found");
+                }
+            })
+            .then((data) => {
+                console.log(data);
+                dispatch(setUser(data));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+// get user from the store state
+export const selectUser = (state) => state.user.user;
+
+export const { setUser, clearUser } = userSlice.actions;
 
 export default userSlice.reducer;

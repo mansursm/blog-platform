@@ -7,7 +7,15 @@ import PostList from '../../components/PostList'
 import './HomePage.css'
 import Modal from '../../components/Modal'
 import {selectIsAuthenticated} from '../LoginPage/authSlice'
+import Button from '../../components/Button'
 
+// TODO:
+// 1. implement the logout functionality
+// 2. implement likes, comments, and share functionality
+// 3. implement the search functionality
+// 4. implement the pagination functionality -- done (needs making number of items per page dynamic & testing)
+// 5. implement the post details page
+// 6. implement the user profile page
 
 function HomePage() {
     // state to manage the modal visibility

@@ -5,8 +5,8 @@
     justify-content: center;
     align-items: center;
     padding: .8em;
-    transform: translateY(40%);
     width: 100%;
+    height: 100vh;
     margin: 0 auto;
 }
 .loginPageContent{
@@ -20,10 +20,11 @@
     background-color: #f9f9f9;
     height: 400px;
     border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,.4);
 }
 .loginPage h1{
     font-size: 1.2rem;
-    margin-bottom: 2em;
+    margin-bottom: 0;
     color: #333;
 }
 .loginPage form{
@@ -31,7 +32,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 90%;
 }
 .inputField{
     display: flex;
@@ -57,5 +58,17 @@
     color: #fff;
     margin: .5em 0;
     width: 100%;
+}
+.textBtns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 90%;
+    padding: .5em;
+}
+.textBtns .textButton{
+    color: #333;
+    margin-bottom: .4em;
 }
 

@@ -25,7 +25,6 @@ function PostPage() {
         // after dispatching the action, the post will be stored in the state
         // access the post from the state using the getCurrentPost selector
 
-
     }, [id, dispatch]);
 
     useEffect(() => {

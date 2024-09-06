@@ -21,10 +21,18 @@ import ErrorMessage from '../../components/ErrorMessage'
 import './LoginPage.css'
 import { loginAsync, selectIsAuthenticated, selectErrorMessage } from './authSlice'
 
+// TODO: 
+// 1. Add client-side validation for the username and password fields
+// 2. Add server-side validation for the username and password fields
+// 3. Add error handling for failed login attempts
+// 4. Add a "Forgot password?" link to the login form
+// 5. make the login form responsive
+
 function Login() {
     const [username, setUsername] = useState(''); // The username input field value.
     const [password, setPassword] = useState(''); // The password input field value.
     const [errorMessage, setErrorMessage] = useState(''); // The error message to display.
+    const errorFromServer = useSelector(selectErrorMessage) // The error message from the server.
     const isAuthenticated = useSelector(selectIsAuthenticated) // The authentication status from the store.
 
     const dispatch = useDispatch();
@@ -35,13 +43,17 @@ function Login() {
             // clear the form fields
             setUsername('')
             setPassword('')
-
             navigate('/')
-        } else {
-            setErrorMessage('Login failed')
-        }
+        } 
     }, [isAuthenticated, navigate])
 
+    // TODO: Add a useEffect hook to handle the error message
+    useEffect(() => {
+      // check error message that is returned from the server
+      if (errorFromServer) {
+        setErrorMessage(errorFromServer);
+      }
+    }, [errorFromServer]);
     /**
      * Handles the form submission.
      *
@@ -139,23 +151,25 @@ function Login() {
                   onChange={handlePasswordChange}
                   value={password}
                 />
-                {errorMessage && (<ErrorMessage message={errorMessage} />)}
+                {errorMessage && <ErrorMessage message={errorMessage} />}
                 <Button type="submit" className={"submit"}>
                   Login
                 </Button>
               </>
             }
           />
-          <TextButton
-            children="Forgot password?"
-            to="/forgot-password"
-            hyperlinkChildren="Click here"
-          />
-          <TextButton
-            children="Don't have an account?"
-            to = "/register"
-            hyperlinkChildren="Sign up"
-          />
+          <div className='textBtns'>
+            <TextButton
+              children="Forgot password?"
+              to="/forgot-password"
+              hyperlinkChildren="Click here"
+            />
+            <TextButton
+              children="Don't have an account?"
+              to="/register"
+              hyperlinkChildren="Sign up"
+            />
+          </div>
         </div>
       </div>
     );

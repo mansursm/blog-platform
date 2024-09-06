@@ -12,7 +12,7 @@ export const authSlice = createSlice({
     reducers: {
         login: (state, action) => {
         state.isAuthenticated = true;
-        state.token = action.payload;
+        state.token = action.payload.token;
         },
         logout: (state) => {
         state.isAuthenticated = false;
@@ -37,12 +37,17 @@ export const loginAsync = (username, password) => (dispatch) => {
         if (res.ok) {
             return res.json();
         } else {
-            throw new Error('Login failed');
+            // throw error from the server
+            return res.json().then((data) => {
+                console.log(data);
+                throw new Error(data.error);
+            });
         }
     })
     .then((data) => {
         console.log(data);  // token
         dispatch(login(data));
+        dispatch(setErrorMessage(''));
     })
     .catch((error) => {
         dispatch(setErrorMessage(error.message));
@@ -73,10 +78,14 @@ export const registerAsync = ( email, password) => (dispatch) => {
         }
     })
     .then((data) => {
-        console.log(data);  // token
+        console.log(data);  
+        // token is returned from the server
         dispatch(login(data));
+        // clear the error message
+        dispatch(setErrorMessage(''));
     })
     .catch((error) => {
+        // set the error message
         dispatch(setErrorMessage(error.message));
     });
     

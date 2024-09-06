@@ -10,13 +10,13 @@
  * @returns {JSX.Element} The rendered Editor component.
  */
 import React from 'react'
-import { forwardRef, useEffect, useRef } from 'react'
+import { forwardRef, useEffect, useRef, useImperativeHandle } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
 
 const Editor = forwardRef(({readOnly, defaultValue, onTextChange, onSelectionChange, className}, ref) => {
-    const quillRef = useRef(null)
+    const quillRef = useRef(ref)
     const onTextChangeRef = useRef(onTextChange);
     const onSelectionChangeRef = useRef(onSelectionChange);
 
@@ -25,6 +25,12 @@ const Editor = forwardRef(({readOnly, defaultValue, onTextChange, onSelectionCha
         onSelectionChangeRef.current = onSelectionChange;
     })
 
+    useImperativeHandle(ref, () => ({
+        getEditor: () => {
+            return quillRef.current.getEditor();
+        }
+    }))
+    
     return (
         <ReactQuill
             ref={quillRef}

@@ -26,27 +26,6 @@ body {
  
 
 
-
-/* Create Post Page */
-.createPostPage{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: .8em;
-    width: 80%;
-    height: 95%;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.editor{
-  max-width: 500px;
-  max-height: 350px;
-  overflow-y: auto;
-  border-radius: 5px;
-}
-
 // Text Button Component
  .textButton{
     padding: .8rem;
@@ -54,95 +33,10 @@ body {
     border-radius: 5px;
     background-color: #333;
     color: #fff;
-    margin-bottom: .5em;
-    width: 250px;
+    width: 100%;
     text-align: center;
     cursor: pointer;
 }
-
-
-/* Admin Page styling */
-.adminPage{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: .8em 0;
-    width: 90%;
-    height: 95%;
-    overflow: hidden;
-    margin: 0 auto;
-}
-.adminMain{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    height: calc(100% - 80px);
-
-}
-.user-info-stats{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 1em;
-    height: 80px;
-}
-.user-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    border-radius: 5px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, .2);
-    padding: .5em 1em;
-    height: 100%;
-}
-.user-info .name{
-    font-size: 1.125rem;
-    color: #333;
-    font-weight: 600;
-}
-.user-info .role{
-    font-size: .7rem;
-    color: #999;
-    font-weight: 600;
-}
-.stats{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 1em;
-    height: 100%;
-}
-.stat{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1em;
-    background-color: #fff;
-    padding: .5em;
-    border-radius: 5px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, .2);
-    height: 100%;
-}
-.stat div{
-  margin-right: .5em;
-}
-.value{
-  color: blue;
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-.analyticsRecentBlogs{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-}
-
 
 
 
@@ -187,8 +81,6 @@ body {
   align-items: center;
   width: 100%;
 }
-
-
 
 @media screen and (max-width: 1200px){
 

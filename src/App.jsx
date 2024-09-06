@@ -53,7 +53,7 @@ function App() {
                     <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
                         <Route path="/create-post" element={<CreatePost />} />
                     </Route>
-                    <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+                    <Route element={<PrivateRoute isAuthenticated={true} />}>
                         <Route path="/admin" element={<AdminPage />} />
                     </Route>
                     <Route path="/register" element={<Register />} />

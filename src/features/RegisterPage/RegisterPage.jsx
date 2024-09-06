@@ -19,6 +19,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectToken } from '../LoginPage/authSlice'
 import { useNavigate } from 'react-router'
 
+// TODO:
+// 1. Add client-side validation for the email, password, and confirm password fields
+// 2. Add server-side validation for the email, password, and confirm password fields
+// 3. Add error handling for failed registration attempts
+// 4. Add a "Already have an account?" link to the registration form
+// 5. make the registration form responsive
+
 function RegisterPage() {
     const dispatch = useDispatch()
     const navigate = useNavigate()

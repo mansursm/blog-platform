@@ -1,8 +1,9 @@
 /* home page */
 .postLists{
     width: 90%;
+    height: calc(100vh - 130px);
     margin: 0 auto;
-    padding: 1em;
+    padding: 0 1em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -12,6 +13,27 @@
     width: 30%; 
 }
 
+.paginationControl{
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    padding: .5em;
+    height: 50px;
+}
+.paginationBtn {
+    padding: 8px 10px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: .4;
+}
+.paginationBtn:hover{
+    opacity: 1;
+}
+.paginationBtn.active{
+    opacity: 1;
+    background: white;
+}
 
 @media screen and (max-width: 768px){
     .postLists{

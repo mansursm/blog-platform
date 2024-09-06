@@ -1,0 +1,19 @@
+/* Create Post Page */
+.createPostPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .8em;
+    width: 80%;
+    height: 95%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.editor{
+  max-width: 600px;
+  max-height: 350px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
